@@ -1,0 +1,5 @@
+id_operacao,id_cliente,valor_parcela,parcelas_em_aberto,valor_total,atraso_dias
+101,1,500,0,10000,0
+102,2,700,2,14000,15
+103,3,800,3,16000,60
+104,4,600,4,12000,90

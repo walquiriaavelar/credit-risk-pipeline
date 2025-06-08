@@ -1,0 +1,5 @@
+id_operacao,id_cliente,valor_parcela,parcelas_em_aberto,valor_total,atraso_dias,nome,idade,score_bureau,classificacao_risco
+101,1,500,0,10000,0,Ana,32,720,Baixo
+102,2,700,2,14000,15,Beto,45,550,Médio
+103,3,800,3,16000,60,Carlos,29,400,Alto
+104,4,600,4,12000,90,Diana,22,300,Alto
