@@ -1,58 +1,28 @@
-# 💳 Pipeline de Risco de Crédito
+---
 
-Este projeto simula um pipeline de dados para **classificação de risco de crédito** de clientes, utilizando dados fictícios de operações financeiras e score de crédito.
+## ☁️ Integração com Databricks (estrutura futura)
 
-O objetivo é demonstrar a aplicação de conceitos de **ETL (Extract, Transform, Load)** com Python e SQL, usando boas práticas de organização e automação de processos analíticos, conforme exigido em cenários como o da Ailos.
+O projeto foi estruturado para ser executado tanto localmente quanto no ambiente **Databricks**, com organização compatível com notebooks e agendamentos via **Databricks Workflows**.
+
+### 🔹 Arquivo de Job
+
+- `pipeline_job.json`: contém a definição do job agendado com:
+  - Nome: `pipeline_operacoes_credito`
+  - Task: `executar_credito`
+  - Agendamento: diário às 07:00 (America/Sao_Paulo)
+
+### 🔹 Notebook (versão Databricks)
+
+- `notebooks/operacoes_credito.py`: estrutura de notebook que simula uma pipeline ETL com base no código do projeto.
+- Adaptável para uso com tabelas Delta e leitura via Spark no Databricks.
+
+### 🛠️ Próximos passos planejados
+
+- Implementação da leitura e gravação de dados em **Delta Lake**
+- Criação de tabelas no **Unity Catalog**
+- Visualização de dados com **Databricks SQL**
+- Deploy final com controle de versão por GitHub e agendamento via interface Databricks
 
 ---
 
-## 🚀 Tecnologias Utilizadas
-
-- Python 3.x
-- Pandas
-- SQLite3
-- CSV (dados brutos)
-- Terminal (para execução e inspeção)
-
----
-
-## 📊 Pipeline: Fluxo de Execução
-
-1. **Extração:** leitura de arquivos `.csv` contendo dados de clientes e operações de crédito;
-2. **Transformação:** classificação de risco baseada em regras de negócio (score de crédito e atraso de pagamento);
-3. **Carga:** exportação dos dados classificados para:
-   - Arquivo `.csv` final
-   - Banco de dados relacional SQLite (`.db`)
-
----
-
-## 📁 Estrutura do Projeto
-
-credit-risk-pipeline/
-├── data/
-│ ├── clientes.csv
-│ └── operacoes_credito.csv
-├── src/
-│ ├── transform.py
-│ └── utils.py
-├── output/
-│ └── risco_credito_final.csv
-├── database/
-│ └── risco_credito.db
-├── requirements.txt
-└── README.md
-
-# 1. Instale as dependências
-pip install -r requirements.txt
-
-# 2. Execute o pipeline
-python -m src.transform
-
-# Entrar no SQLite via terminal
-sqlite3 database/risco_credito.db
-
-# Listar tabelas
-.tables
-
-# Visualizar dados
-SELECT * FROM tb_risco_credito LIMIT 10;
+> 🔍 Esse diferencial demonstra minha preparação técnica para atuar em ambientes reais de engenharia de dados em nuvem com ferramentas como o Databricks, conforme exigido na vaga da Ailos.
