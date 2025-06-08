@@ -1,44 +1,58 @@
-# Pipeline de Risco de Crédito
+# 💳 Pipeline de Risco de Crédito
 
-Este projeto simula um pipeline simples para classificação de risco de crédito de clientes, com base em dados fictícios de operações financeiras e score de bureau.
+Este projeto simula um pipeline de dados para **classificação de risco de crédito** de clientes, utilizando dados fictícios de operações financeiras e score de crédito.
 
-## Tecnologias
+O objetivo é demonstrar a aplicação de conceitos de **ETL (Extract, Transform, Load)** com Python e SQL, usando boas práticas de organização e automação de processos analíticos, conforme exigido em cenários como o da Ailos.
 
-- Python (pandas)
-- SQLite
-- CSV
+---
 
-## Fluxo
+## 🚀 Tecnologias Utilizadas
 
-1. Leitura dos dados brutos;
-2. Classificação do risco com base em atraso e score;
-3. Exportação para CSV e banco de dados SQLite.
+- Python 3.x
+- Pandas
+- SQLite3
+- CSV (dados brutos)
+- Terminal (para execução e inspeção)
 
-## Como executar
+---
 
-bash
+## 📊 Pipeline: Fluxo de Execução
+
+1. **Extração:** leitura de arquivos `.csv` contendo dados de clientes e operações de crédito;
+2. **Transformação:** classificação de risco baseada em regras de negócio (score de crédito e atraso de pagamento);
+3. **Carga:** exportação dos dados classificados para:
+   - Arquivo `.csv` final
+   - Banco de dados relacional SQLite (`.db`)
+
+---
+
+## 📁 Estrutura do Projeto
+
+credit-risk-pipeline/
+├── data/
+│ ├── clientes.csv
+│ └── operacoes_credito.csv
+├── src/
+│ ├── transform.py
+│ └── utils.py
+├── output/
+│ └── risco_credito_final.csv
+├── database/
+│ └── risco_credito.db
+├── requirements.txt
+└── README.md
+
+# 1. Instale as dependências
 pip install -r requirements.txt
-python src/transform.py
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Credit Risk Pipeline
+# 2. Execute o pipeline
+python -m src.transform
 
-## Objetivo
-Pipeline de ingestão, transformação e análise de risco de crédito com agendamento automático no Databricks.
+# Entrar no SQLite via terminal
+sqlite3 database/risco_credito.db
 
-## Estrutura
-- Leitura de dados Delta
-- Criação de tabelas no Unity Catalog
-- Criação de view de inadimplência
-- Agendamento via Job (Databricks Workflows)
+# Listar tabelas
+.tables
 
-## View principal
-`credit_risk.vw_operacoes_atraso`
-
-## Job agendado
-- Nome: `pipeline_operacoes_credito`
-- Task: `executar_credito`
-- Agendamento: Diário às 07:00 (America/Sao_Paulo)
-
-## Execução
-Importe o notebook, configure o job e execute manualmente ou aguarde a agenda.
+# Visualizar dados
+SELECT * FROM tb_risco_credito LIMIT 10;
